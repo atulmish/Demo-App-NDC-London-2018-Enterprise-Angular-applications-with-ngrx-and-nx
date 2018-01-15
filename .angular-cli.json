@@ -69,6 +69,18 @@
         "dev": "environments/environment.ts",
         "prod": "environments/environment.prod.ts"
       }
+    },
+    {
+      "name": "auth",
+      "root": "libs/auth/src",
+      "test": "../../../test.js",
+      "appRoot": ""
+    },
+    {
+      "name": "data-models",
+      "root": "libs/data-models/src",
+      "test": "../../../test.js",
+      "appRoot": ""
     }
   ]
 }

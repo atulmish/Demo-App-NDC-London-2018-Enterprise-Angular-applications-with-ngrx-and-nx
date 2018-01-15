@@ -8,16 +8,20 @@ import { EffectsModule } from '@ngrx/effects';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../environments/environment';
 import { StoreRouterConnectingModule } from '@ngrx/router-store';
+import { authRoutes, AuthModule } from '@demo-app/auth';
 
 @NgModule({
   imports: [
     BrowserModule,
     NxModule.forRoot(),
-    RouterModule.forRoot([], { initialNavigation: 'enabled' }),
+    RouterModule.forRoot([{ path: 'auth', children: authRoutes }], {
+      initialNavigation: 'enabled'
+    }),
     StoreModule.forRoot({}),
     EffectsModule.forRoot([]),
     !environment.production ? StoreDevtoolsModule.instrument() : [],
-    StoreRouterConnectingModule
+    StoreRouterConnectingModule,
+    AuthModule
   ],
   declarations: [AppComponent],
   bootstrap: [AppComponent]
