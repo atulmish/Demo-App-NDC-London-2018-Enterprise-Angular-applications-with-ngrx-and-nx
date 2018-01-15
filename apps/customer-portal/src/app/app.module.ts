@@ -9,19 +9,27 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../environments/environment';
 import { StoreRouterConnectingModule } from '@ngrx/router-store';
 import { authRoutes, AuthModule } from '@demo-app/auth';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   imports: [
     BrowserModule,
     NxModule.forRoot(),
-    RouterModule.forRoot([{ path: 'auth', children: authRoutes }], {
-      initialNavigation: 'enabled'
-    }),
+    RouterModule.forRoot(
+      [
+        { path: 'auth', children: authRoutes },
+        { path: 'user-profile', loadChildren: '@demo-app/user-profile#UserProfileModule' }
+      ],
+      {
+        initialNavigation: 'enabled'
+      }
+    ),
     StoreModule.forRoot({}),
     EffectsModule.forRoot([]),
     !environment.production ? StoreDevtoolsModule.instrument() : [],
     StoreRouterConnectingModule,
-    AuthModule.forRoot()
+    AuthModule.forRoot(),
+    BrowserAnimationsModule
   ],
   declarations: [AppComponent],
   bootstrap: [AppComponent]
