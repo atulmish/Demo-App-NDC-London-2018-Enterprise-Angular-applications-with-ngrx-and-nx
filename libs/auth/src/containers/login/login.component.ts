@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Authenticate } from '@demo-app/data-models';
+import { AuthService } from './../../services/auth.service';
+import { catchError, map } from 'rxjs/operators';
+import { Observable } from 'rxjs/Observable';
+import { of } from 'rxjs/observable/of';
 
 @Component({
   selector: 'login',
@@ -7,11 +11,12 @@ import { Authenticate } from '@demo-app/data-models';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
-  constructor() {}
+  user$: Observable<any>;
+  constructor(private authService: AuthService) {}
 
   ngOnInit() {}
 
-  login(authenticate: Authenticate) {
-    console.log(authenticate);
+  login(authenticate: Authenticate): void {
+    this.user$ = this.authService.login(authenticate);
   }
 }

@@ -21,7 +21,7 @@ import { authRoutes, AuthModule } from '@demo-app/auth';
     EffectsModule.forRoot([]),
     !environment.production ? StoreDevtoolsModule.instrument() : [],
     StoreRouterConnectingModule,
-    AuthModule
+    AuthModule.forRoot()
   ],
   declarations: [AppComponent],
   bootstrap: [AppComponent]

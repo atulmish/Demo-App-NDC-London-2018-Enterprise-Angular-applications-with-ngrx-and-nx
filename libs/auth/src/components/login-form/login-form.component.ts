@@ -10,9 +10,6 @@ export class LoginFormComponent {
   @Output() submit = new EventEmitter<Authenticate>();
 
   login(authenticate: Authenticate) {
-    this.submit.emit(authenticate)
+    this.submit.emit(authenticate);
   }
-
 }
-
-
