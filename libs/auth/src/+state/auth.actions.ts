@@ -5,6 +5,7 @@ export enum AuthStateActionTypes {
   Login = '[AuthState] Login',
   LoginSuccess = '[AuthState] Login Success',
   LoginFail = '[AuthState] Login Fail',
+  Logout = '[AuthState] Logout',
   NavigateToProfile = '[AuthState] Navigate To Profile'
 }
 

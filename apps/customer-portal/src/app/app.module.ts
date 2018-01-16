@@ -11,6 +11,8 @@ import { StoreRouterConnectingModule } from '@ngrx/router-store';
 import { authRoutes, AuthModule } from '@demo-app/auth';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AuthGuard } from '@demo-app/auth';
+// tslint:disable-next-line:nx-enforce-module-boundaries
+import { LayoutModule } from '@demo-app/customer-portal/layout';
 
 @NgModule({
   imports: [
@@ -18,6 +20,7 @@ import { AuthGuard } from '@demo-app/auth';
     NxModule.forRoot(),
     RouterModule.forRoot(
       [
+        { path: '', pathMatch: 'full', redirectTo: 'user-profile' },
         { path: 'auth', children: authRoutes },
         {
           path: 'user-profile',
@@ -33,8 +36,9 @@ import { AuthGuard } from '@demo-app/auth';
     EffectsModule.forRoot([]),
     !environment.production ? StoreDevtoolsModule.instrument() : [],
     StoreRouterConnectingModule,
+    BrowserAnimationsModule,
     AuthModule.forRoot(),
-    BrowserAnimationsModule
+    LayoutModule
   ],
   declarations: [AppComponent],
   bootstrap: [AppComponent]

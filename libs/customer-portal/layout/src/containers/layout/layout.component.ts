@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Store } from '@ngrx/store';
+import { AuthState } from '@demo-app/auth';
+import { User } from '@demo-app/data-models';
+import { getUser } from '@demo-app/auth';
 
 @Component({
   selector: 'layout',
@@ -6,7 +10,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./layout.component.scss']
 })
 export class LayoutComponent implements OnInit {
-  constructor() {}
+  user$: Store<User>;
+  constructor(private store: Store<AuthState>) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.user$ = this.store.select(getUser);
+  }
 }
