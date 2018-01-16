@@ -17,8 +17,6 @@ export class LoginFormComponent {
   });
 
   login(): void {
-    debugger;
-    LoginComponent;
     const newAuthenticate: Authenticate = {
       username: this.loginForm.value.username,
       password: this.loginForm.value.password

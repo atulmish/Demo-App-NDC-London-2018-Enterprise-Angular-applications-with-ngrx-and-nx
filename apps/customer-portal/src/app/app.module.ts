@@ -10,6 +10,7 @@ import { environment } from '../environments/environment';
 import { StoreRouterConnectingModule } from '@ngrx/router-store';
 import { authRoutes, AuthModule } from '@demo-app/auth';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { AuthGuard } from '@demo-app/auth';
 
 @NgModule({
   imports: [
@@ -18,7 +19,11 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     RouterModule.forRoot(
       [
         { path: 'auth', children: authRoutes },
-        { path: 'user-profile', loadChildren: '@demo-app/user-profile#UserProfileModule' }
+        { 
+          path: 'user-profile', 
+          loadChildren: '@demo-app/user-profile#UserProfileModule',
+          canActivate: [AuthGuard]
+        }
       ],
       {
         initialNavigation: 'enabled'

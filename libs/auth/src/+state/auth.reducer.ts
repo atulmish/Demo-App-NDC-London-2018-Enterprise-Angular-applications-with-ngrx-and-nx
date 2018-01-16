@@ -1,10 +1,20 @@
 import { Auth } from './auth.interfaces';
-import { AuthAction } from './auth.actions';
+import * as authAction from './auth.actions';
 
-export function authReducer(state: Auth, action: AuthAction): Auth {
+export function authReducer(state: Auth, action: authAction.AuthStateActions): Auth {
   switch (action.type) {
-    case 'DATA_LOADED': {
-      return { ...state, ...action.payload };
+    case authAction.AuthStateActionTypes.Login: {
+      return {
+        ...state,
+        loading: true
+      };
+    }
+    case authAction.AuthStateActionTypes.LoginSuccess: {
+      return {
+        ...state,
+        loading: false,
+        user: action.payload
+      };
     }
     default: {
       return state;

@@ -1,5 +1,8 @@
+import { User } from '@demo-app/data-models';
+
 export interface Auth {
-  // define state here
+  user: User;
+  loading: boolean;
 }
 
 export interface AuthState {
