@@ -1,1 +1,2 @@
-{{users$ | async | json}}
+<users-table-toolbar (onFilter)="updateUrlFilters($event)"></users-table-toolbar>
+<app-users-table [users]="users$ | async"></app-users-table>

@@ -4,6 +4,7 @@ import { Store } from '@ngrx/store';
 import { selectAllUsers } from './../../+state';
 import { User } from '@demo-app/data-models';
 import * as usersActions from './../../+state/users.actions';
+import { NavigationExtras, Router } from '@angular/router';
 
 @Component({
   selector: 'user-list',
@@ -13,10 +14,20 @@ import * as usersActions from './../../+state/users.actions';
 export class UserListComponent implements OnInit {
   users$: Store<User[]>;
 
-  constructor(private store: Store<UsersState>) {}
+  constructor(
+    private router: Router,
+    private store: Store<UsersState>) {}
 
   ngOnInit() {
-    this.store.dispatch(new usersActions.LoadUsersAction());
-    this.users$ = this.store.select(selectAllUsers)
+    // this.store.  dispatch(new usersActions.LoadUsersAction());
+    this.users$ = this.store.select(selectAllUsers);
+  }
+
+  updateUrlFilters(country: string): void {
+    const navigationExtras: NavigationExtras = {
+      replaceUrl: true,
+      queryParams: {country}
+    };
+    this.router.navigate([`/users`], navigationExtras);
   }
 }

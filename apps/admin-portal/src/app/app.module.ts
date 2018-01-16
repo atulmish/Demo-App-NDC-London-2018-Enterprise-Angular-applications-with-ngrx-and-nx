@@ -29,7 +29,7 @@ import { AuthAdminGuard } from '@demo-app/auth/src/guards/auth-admin/auth-admin.
         {
           path: 'users',
           loadChildren: '@demo-app/admin-portal/users#UsersModule',
-          canActivate: [AuthAdminGuard]
+          // canActivate: [AuthAdminGuard]
         }
       ],
       { initialNavigation: 'enabled' }

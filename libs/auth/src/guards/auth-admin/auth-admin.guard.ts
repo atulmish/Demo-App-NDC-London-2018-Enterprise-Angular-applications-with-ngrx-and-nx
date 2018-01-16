@@ -2,7 +2,8 @@ import { Injectable } from '@angular/core';
 import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, Router } from '@angular/router';
 import { Observable } from 'rxjs/Observable';
 import { Store } from '@ngrx/store';
-import { AuthState, getUser } from '@demo-app/auth';
+import { AuthState } from './../../+state/auth.interfaces';
+import { getUser } from './../../+state';
 import { map } from 'rxjs/operators';
 import { User } from '@demo-app/data-models';
 
