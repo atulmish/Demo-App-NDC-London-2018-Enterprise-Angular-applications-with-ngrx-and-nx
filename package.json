@@ -21,7 +21,8 @@
     "nx-migrate": "node ./node_modules/@nrwl/schematics/src/command-line/nx-migrate.js",
     "server": "ts-node ./server/server.ts",
     "customer-portal": "ng serve -a=customer-portal -p=4200",
-    "admin-portal": "ng serve -a=admin-portal -p=4201"
+    "admin-portal": "ng serve -a=admin-portal -p=4201",
+    "bundle-report-admin-portal": "webpack-bundle-analyzer dist/apps/admin-portal/stats.json"
   },
   "private": true,
   "dependencies": {
@@ -70,6 +71,7 @@
     "protractor": "~5.1.2",
     "ts-node": "^3.2.2",
     "tslint": "~5.7.0",
-    "typescript": "2.5.3"
+    "typescript": "2.5.3",
+    "webpack-bundle-analyzer": "^2.9.2"
   }
 }
