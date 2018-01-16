@@ -14,9 +14,7 @@ import { authInitialState } from './+state/auth.init';
 import { AuthEffects } from './+state/auth.effects';
 import { AuthGuard } from './guards/auth/auth.guard';
 import { AuthInterceptor } from './interceptors/auth.interceptor';
-export const authRoutes: Route[] = [
-  { path: 'login', component: LoginComponent }
-];
+export const authRoutes: Route[] = [{ path: 'login', component: LoginComponent }];
 
 @NgModule({
   imports: [

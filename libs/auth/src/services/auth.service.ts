@@ -11,15 +11,13 @@ export class AuthService {
   constructor(private httpClient: HttpClient) {}
 
   login(authenticate: Authenticate) {
-    return this.httpClient
-      .post('http://localhost:3000/login', authenticate)
-      .pipe(
-        tap((user: User) => {
-          this.isAuthenticated = true;
-          this.user = user;
-          this.setAuthToken(user.token);
-        })
-      );
+    return this.httpClient.post('http://localhost:3000/login', authenticate).pipe(
+      tap((user: User) => {
+        this.isAuthenticated = true;
+        this.user = user;
+        this.setAuthToken(user.token);
+      })
+    );
   }
 
   setAuthToken(token: string) {

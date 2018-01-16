@@ -1,10 +1,5 @@
 import { Injectable, Injector } from '@angular/core';
-import {
-  HttpEvent,
-  HttpInterceptor,
-  HttpHandler,
-  HttpRequest
-} from '@angular/common/http';
+import { HttpEvent, HttpInterceptor, HttpHandler, HttpRequest } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
 import { AuthService } from '../services/auth.service';
 import { switchMap, tap } from 'rxjs/operators';
@@ -15,10 +10,7 @@ export class AuthInterceptor implements HttpInterceptor {
   authService: AuthService;
   constructor(private injector: Injector) {}
 
-  intercept(
-    req: HttpRequest<any>,
-    next: HttpHandler
-  ): Observable<HttpEvent<any>> {
+  intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     this.authService = this.injector.get(AuthService);
     const token = this.authService.getAuthToken();
 

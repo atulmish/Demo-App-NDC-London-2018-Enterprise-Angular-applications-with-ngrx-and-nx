@@ -19,8 +19,8 @@ import { AuthGuard } from '@demo-app/auth';
     RouterModule.forRoot(
       [
         { path: 'auth', children: authRoutes },
-        { 
-          path: 'user-profile', 
+        {
+          path: 'user-profile',
           loadChildren: '@demo-app/user-profile#UserProfileModule',
           canActivate: [AuthGuard]
         }
