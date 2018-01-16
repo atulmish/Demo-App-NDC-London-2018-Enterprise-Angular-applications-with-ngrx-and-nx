@@ -1,6 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { UsersTableComponent } from './users-table.component';
+import { MaterialModule } from '@demo-app/material';
+import { RouterModule } from '@angular/router';
 
 describe('UsersTableComponent', () => {
   let component: UsersTableComponent;
@@ -9,6 +10,7 @@ describe('UsersTableComponent', () => {
   beforeEach(
     async(() => {
       TestBed.configureTestingModule({
+        imports: [MaterialModule, RouterModule],
         declarations: [UsersTableComponent]
       }).compileComponents();
     })
@@ -23,4 +25,5 @@ describe('UsersTableComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
 });
