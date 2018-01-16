@@ -19,7 +19,9 @@
     "format:write": "node ./node_modules/@nrwl/schematics/src/command-line/format.js write",
     "format:check": "node ./node_modules/@nrwl/schematics/src/command-line/format.js check",
     "nx-migrate": "node ./node_modules/@nrwl/schematics/src/command-line/nx-migrate.js",
-    "server": "ts-node ./server/server.ts"
+    "server": "ts-node ./server/server.ts",
+    "customer-portal": "ng serve -a=customer-portal -p=4200",
+    "admin-portal": "ng serve -a=admin-portal -p=4201"
   },
   "private": true,
   "dependencies": {
