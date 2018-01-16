@@ -9,7 +9,9 @@
     /* add all lazy-loaded libraries here: "../../../libs/my-lib/index.ts" */
     , "../../../libs/user-profile/index.ts"
 
-  ],
+  
+    , "../../../libs/admin-portal/users/index.ts"
+],
   "exclude": [
     "**/*.spec.ts"
   ]

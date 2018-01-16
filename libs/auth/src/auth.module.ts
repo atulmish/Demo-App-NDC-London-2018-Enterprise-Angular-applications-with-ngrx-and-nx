@@ -14,6 +14,7 @@ import { authInitialState } from './+state/auth.init';
 import { AuthEffects } from './+state/auth.effects';
 import { AuthGuard } from './guards/auth/auth.guard';
 import { AuthInterceptor } from './interceptors/auth.interceptor';
+import { AuthAdminGuard } from '@demo-app/auth/src/guards/auth-admin/auth-admin.guard';
 export const authRoutes: Route[] = [{ path: 'login', component: LoginComponent }];
 
 @NgModule({
@@ -38,6 +39,7 @@ export class AuthModule {
       providers: [
         AuthService,
         AuthGuard,
+        AuthAdminGuard,
         {
           provide: HTTP_INTERCEPTORS,
           useClass: AuthInterceptor,

@@ -93,7 +93,8 @@
       true,
       {
         "lazyLoad": [
-          "user-profile"
+          "user-profile",
+          "admin-portal/users"
         ],
         "allow": []
       }
