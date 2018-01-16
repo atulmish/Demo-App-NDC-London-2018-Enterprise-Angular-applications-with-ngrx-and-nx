@@ -13,15 +13,11 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
   user$: Observable<any>;
-  constructor(
-    private router: Router,
-    private authService: AuthService) {}
+  constructor(private router: Router, private authService: AuthService) {}
 
   ngOnInit() {}
 
   login(authenticate: Authenticate): void {
-    this.authService.login(authenticate).subscribe(
-      (user: User) => this.router.navigate([`/user-profile/${user.id}`])
-    );
+    this.authService.login(authenticate).subscribe((user: User) => this.router.navigate([`/user-profile/${user.id}`]));
   }
 }
